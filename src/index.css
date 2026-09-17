@@ -1,0 +1,14 @@
+*{
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html {
+  scroll-behavior: smooth
+}
+
+body {
+  overflow-x: hidden
+}
+
+@import "tailwindcss";
