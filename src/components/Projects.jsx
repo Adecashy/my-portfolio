@@ -1,8 +1,10 @@
 import { motion } from "motion/react"
-import { FaGithub, FaNodeJs, FaReact } from "react-icons/fa"
+import { FaCss3Alt, FaHtml5, FaJs, FaNodeJs, FaReact } from "react-icons/fa"
 import { HiArrowUpRight, HiSparkles } from "react-icons/hi2"
-import { SiExpress, SiMongodb, SiTailwindcss } from "react-icons/si"
+import { SiExpress, SiFirebase, SiMongodb, SiTailwindcss } from "react-icons/si"
 import innspaceImg from "../assets/projects/innspace.png"
+import myportfolioImg from "../assets/projects/myportfolio.jpg"
+import fonecribImg from "../assets/projects/fonecrib.png"
 
 const projects = [
     {
@@ -34,19 +36,36 @@ const projects = [
             { name: "TailwindCSS", icon: SiTailwindcss }
         ],
         number: "02",
+        featured: true,
         liveUrl: "#"
+    },
+    {
+        title: "Fonecrib",
+        category: "E-commerce phone store",
+        description: "A platform designed to shop for phone, gadgets and other accessories",
+        image: fonecribImg,
+        technologies: [
+            { name: "HTML", icon: FaHtml5 },
+            { name: "CSS", icon: FaCss3Alt },
+            { name: "Javascript", icon: FaJs },
+            { name: "Firebase", icon: SiFirebase }
+        ],
+        number: "03",
+        featured: true,
+        liveUrl: "https://fonecrib.vercel.app"
     },
     {
         title: "My Portfolio",
         category: "Personal Portfolio",
         description: "A modern interactive portfolio showcasing my development work, technical skills, and creative approach to building digital experiences.",
-        image: null,
+        image: myportfolioImg,
         technologies: [
             { name: "React", icon: FaReact },
             { name: "TailwindCSS", icon: SiTailwindcss }
         ],
-        number: "03",
-        liveUrl: "#"
+        number: "04",
+        featured: true,
+        liveUrl: "https://deadeleke.vercel.app"
     },
 ]
 
