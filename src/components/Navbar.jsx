@@ -80,7 +80,7 @@ const Navbar = () => {
     <div>
         {/* Mobile Header */}
         <header className='fixed top-0 left-0 z-50 flex h-[73px] w-full items-center justify-between border-b border-white/10 bg-[#071a2b]/90 px-6  backdrop-blur-xl lg:hidden'>
-            <motion.button type="button" onClick={() => handleNavigation("/")} whileTap={{ scale: 0.95 }} className='text-xl font-bold tracking-tight text-white cursor-pointer'>ADE <span className='text-[#4cc9f0]'>.</span></motion.button>
+            <motion.button type="button" onClick={() => handleNavigation("/")} whileTap={{ scale: 0.95 }} className='text-xl font-bold tracking-tight text-white cursor-pointer'>ADE<span className='text-[#4cc9f0]'>.</span></motion.button>
             <motion.button type='button' onClick={() => setIsOpen((prev) => !prev)} whileTap={{ scale: 0.9 }} className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-2xl text-white transition hover:border-[#4cc9f0]/40 hover:text-[#4cc9f0]" aria-label='Toggle Navigation' aria-expanded={isOpen}>
                 <AnimatePresence mode='wait' initial={false} >
                     <motion.span key={isOpen ? "close" : "menu"} initial={{ opacity: 0, rotate: -90, scale: 0.7 }} animate={{ opacity: 1, rotate: 0, scale: 1 }} exit={{ opacity: 0, rotate: 90, scale: 0.7 }} transition={{ duration: 0.2 }}>
@@ -93,7 +93,7 @@ const Navbar = () => {
         {/* Desktop Sidebar */}
         <aside className='fixed left-0 top-0 z-50 hidden h-screen w-72 flex-col justify-between border-r border-white/10 bg-[#071a2b] p-8 lg:flex'>
             <div>
-                <motion.a onClick={() => handleNavigation("/")} whileHover={{ x: 3 }} className='inline-block text-3xl font-bold tracking-tight text-white cursor-pointer'>ADE <span className='text-[#4cc9f0]'>.</span></motion.a>
+                <motion.a onClick={() => handleNavigation("/")} whileHover={{ x: 3 }} className='inline-block text-3xl font-bold tracking-tight text-white cursor-pointer'>ADE<span className='text-[#4cc9f0]'>.</span></motion.a>
                 <p className='mt-2 text-sm text-gray-400'>Full Stack Web Developer</p>
             </div>
             <nav className='flex flex-col gap-3'>

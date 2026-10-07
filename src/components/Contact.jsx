@@ -2,6 +2,7 @@ import { motion } from "motion/react"
 import { useState } from "react"
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa"
 import { HiArrowUpRight, HiEnvelope, HiMapPin, HiPaperAirplane } from "react-icons/hi2"
+import { toast } from "sonner"
 
 
 const Contact = () => {
@@ -11,6 +12,8 @@ const Contact = () => {
         message: ""
     })
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const handleChange = (e) => {
         setformData({
             ...formData,
@@ -18,10 +21,45 @@ const Contact = () => {
         })
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true)
+        try {
+            const apiUrl = " https://myportfolio-backend-gfot.onrender.com"
+            console.log(apiUrl)
+            const response = await fetch(
+                `${apiUrl}/api/contact`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formData)
+                }
+            )
+            const data = await response.json()
 
-        console.log(formData)
+            console.log("Backend response:", data);
+
+            if (!response.ok) {
+                throw new Error(data.message || "Something went wrong");
+            }
+
+            await new Promise((resolve) => setTimeout(resolve, 1000))
+
+            toast.success("Message sent successfully", {
+                description: "Thanks for reaching out. I'll get back to you soon."
+            })
+
+            setformData({
+                name: "",
+                email: "",
+                message: ""
+            })
+        } catch (error) {
+            console.error("Error sending message:", error);
+
+            toast.error("Failed to send message. Please try again.")
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     const socials = [
@@ -149,9 +187,22 @@ const Contact = () => {
                                 </div>
 
                                 {/* Submit */}
-                                <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="group flex w-full items-center justify-center gap-3 rounded-xl bg-[#4cc9f0] px-6 py-4 font-semibold text-[#071a2b] transition hover:bg-white">
-                                    Send Message
-                                    <HiPaperAirplane className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+                                <motion.button type="submit"
+                                    whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                                    whileTap={!isSubmitting ? { scale: 0.98 } : {}}
+                                    disabled={isSubmitting}
+                                    className="group flex w-full items-center justify-center gap-3 rounded-xl bg-[#4cc9f0] px-6 py-4 font-semibold text-[#071a2b] transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-70">
+                                        {isSubmitting ? (
+                                            <>
+                                                <span className="h-5 w-5 animate-spin rounded-full border-2 border-[#071a2b]/30 border-t-[#071a2b]" />
+                                                Sending...
+                                            </>
+                                        ) : (
+                                            <>
+                                                Send Message
+                                                <HiPaperAirplane className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+                                            </>
+                                        )}
                                 </motion.button>
                             </div>
                         </div>
