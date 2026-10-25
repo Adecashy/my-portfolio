@@ -5,6 +5,7 @@ import { SiExpress, SiFirebase, SiMongodb, SiTailwindcss } from "react-icons/si"
 import innspaceImg from "../assets/projects/innspace.png"
 import myportfolioImg from "../assets/projects/myportfolio.jpg"
 import fonecribImg from "../assets/projects/fonecrib.png"
+import fitgenieImg from "../assets/projects/fitgenie.png"
 
 const projects = [
     {
@@ -27,7 +28,7 @@ const projects = [
         title: "FitGenie",
         category: "AI Fitness Platform",
         description: "An AI-powered fitness platform designed to generate personalized workout and nutrition plans.",
-        image: null,
+        image: fitgenieImg,
         technologies: [
             { name: "React", icon: FaReact },
             { name: "Node.js", icon: FaNodeJs },
