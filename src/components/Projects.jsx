@@ -38,7 +38,7 @@ const projects = [
         ],
         number: "02",
         featured: true,
-        liveUrl: "#"
+        liveUrl: "https://fitgenieai-two.vercel.app"
     },
     {
         title: "Fonecrib",
