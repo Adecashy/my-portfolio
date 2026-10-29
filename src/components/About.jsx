@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { HiArrowUpRight, HiCheckCircle, HiOutlineCodeBracket, HiOutlineCpuChip, HiOutlineRocketLaunch } from "react-icons/hi2";
-import profilePic from "../assets/ade-profile.JPG"
+import profilePic from "../assets/official-pic.png"
 
 
 const stats = [
